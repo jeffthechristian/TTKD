@@ -17,6 +17,7 @@ $firstname = $users[0]['firstname'];
 $lastname = $users[0]['lastname'];
 $email = $users[0]['email'];
 $color = $users[0]['user_color'];
+$password = $users[0]['password'];
 
 ?>
 
@@ -40,6 +41,17 @@ $color = $users[0]['user_color'];
                     <p><?php echo $username; ?> profils</p>
                 </div>
                 <div class="widget-body">
+<<<<<<< HEAD
+=======
+                    <?php if($_SESSION['user-id'] == $_GET['profileid']): ?>
+                    <div class="edit-profile">
+                        <button class="thread-button" style="border: none; width: 20%; cursor: pointer;" id="edit-button">Labot profila informāciju</button>
+                    </div>
+                    <div class="edit-password">
+                    <button class="thread-button" style="border: none; width: 20%; cursor: pointer;" id="editp-button">Mainīt paroli</button>
+                    </div>
+                    <?php endif; ?>
+>>>>>>> 39b13eab873cfa5d9c5a5af1db41c51e7df49611
                     <div class="profileinfotext">
                         <div class="profile">
                             <p>Vārds: <?php echo $firstname; ?></p>
@@ -66,6 +78,7 @@ $color = $users[0]['user_color'];
                             </form>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="profileinfotext-edit-password">
                         <div class="profile">
                             <?php include './components/updatepassword.php'; ?>
@@ -88,6 +101,18 @@ $color = $users[0]['user_color'];
                         <button class="thread-button" id="password-button">Mainīt paroli</button>
                     </div>
                     <?php endif; ?>
+=======
+                    <div class="password-edit">
+                        <div class="profile">
+                            <?php include './components/updatepassword.php'; ?>
+                            <form action="" method="POST">
+                                <label for="password">Jaunā parole:</label>
+                                <input type="text"  value="<?php echo $password; ?>" name="password">
+                                <button type="submit" name="update-password" class="thread-button" id="submit-button">Saglabāt</button>
+                            </form>
+                        </div>
+                    </div>
+>>>>>>> 39b13eab873cfa5d9c5a5af1db41c51e7df49611
                 </div>
             </div>
         </div>

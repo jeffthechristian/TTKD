@@ -5,7 +5,7 @@
         </div>
         <ul class="menu-items">
             <li><a href="index.php">Sākums</a></li>
-            <li><a href="#">Forums</a></li>
+            <li><a href="forum.php">Forums</a></li>
             <li><a href="rules.php">Noteikumi</a></li>
         </ul>
         <?php if (!isset($_SESSION['is-logged-in'])): ?>
