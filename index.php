@@ -78,9 +78,9 @@
                             
                             <div class="forum-post">
                             <div class="image"></div>
-                                <div class="post-info">
-                                    <a href="post.php?postid='.$posts[sizeof($posts) - $i - 1]['post_id'].'">'.$posts[sizeof($posts) - $i - 1]['post_title'].'</a>
-                                    <p>Pievienoja <a href="profile.php?profileid='.$posts[sizeof($posts) - $i - 1]['author_id'].'" id="user-link">'.$posts[sizeof($posts) - $i - 1]['username'].'</a></p>
+                                <div class="new-info">
+                                    <a href="news.php?newid='.$new[sizeof($new) - $i - 1]['new_id'].'">'.$new[sizeof($new) - $i - 1]['new_title'].'</a>
+                                    <p>Pievienoja <a href="profile.php?profileid='.$new[sizeof($new) - $i - 1]['author_id'].'" id="user-link">'.$new[sizeof($new) - $i - 1]['username'].'</a></p>
                                 </div>
                             </div>
 

@@ -18,11 +18,11 @@ try{
     Datubāzes kļūda!
     </div>';
 }
-$post = $statement->fetchAll(PDO::FETCH_ASSOC);
+$new = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-$post_title = $post[0]['new_title'];
-$post_content = $post[0]['new_content'];
-$author_id = $post[0]['author_id'];
+$new_title = $new[0]['new_title'];
+$new_content = $new[0]['new_content'];
+$author_id = $new[0]['author_id'];
 
 try{
     $sql = "SELECT id, username FROM user WHERE id=:userid";
@@ -48,7 +48,7 @@ $profileid = $user[0]['id'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./stylesheets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $post_title ?></title>
+    <title><?php echo $new_title ?></title>
 </head>
 <body>
 <div class="banner"></div>
@@ -56,11 +56,11 @@ $profileid = $user[0]['id'];
     <div class="container">
         <div class="chat-widget" style="display: inline-block; margin: 35px;">
             <div class="widget-header">
-                <p><?php echo $post_title ?></p>
+                <p><?php echo $new_title ?></p>
             </div>
             <div class="widget-body">
-                <div class="post-text">
-                    <p><?php echo $post_content ?></p>
+                <div class="new-text">
+                    <p><?php echo $new_content ?></p>
                 </div>
                 <div class="author-text">
                     <p>Pievienoja <a href="profile.php?profileid=<?php echo $profileid; ?>"><?php echo $username; ?></a></p>
@@ -73,9 +73,9 @@ $profileid = $user[0]['id'];
             </div>
             <div class="widget-body">
                 <?php if(isset($_SESSION['is-logged-in'])): ?>
-                <div class="newpost">
+                <div class="newnew">
                     <?php include './components/addcomment.php'; ?>
-                    <form action="" method="POST">
+                    <form action="" method="new">
                         <label for="comment-text">Pievienot komentāru:</label>
                         <input type="text" name="comment-text" id="">
                         <button type="submit" id="submit-button" name="add-comment">Pievienot komentāru</button>
