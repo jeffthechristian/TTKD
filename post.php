@@ -25,7 +25,7 @@ $post_content = $post[0]['post_content'];
 $author_id = $post[0]['author_id'];
 
 try{
-    $sql = "SELECT id, username FROM user WHERE id=:userid";
+    $sql = "SELECT id, username, user_color FROM user WHERE id=:userid";
     $statement = $pdo->prepare($sql);
     $statement->execute(array(
         ':userid' => $author_id
@@ -39,6 +39,7 @@ try{
 $user = $statement->fetchAll(PDO::FETCH_ASSOC);
 $username = $user[0]['username'];
 $profileid = $user[0]['id'];
+$usercolor = $user[0]['user_color'];
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +48,8 @@ $profileid = $user[0]['id'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./scripts/app.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $post_title ?></title>
 </head>
@@ -54,7 +57,7 @@ $profileid = $user[0]['id'];
 <div class="banner"></div>
     <?php require './components/navigation.php'; ?>
     <div class="container">
-        <div class="chat-widget" style="display: inline-block; margin: 35px;">
+        <div class="chat-widget f-widget">
             <div class="widget-header">
                 <p><?php echo $post_title ?></p>
             </div>
@@ -63,11 +66,11 @@ $profileid = $user[0]['id'];
                     <p><?php echo $post_content ?></p>
                 </div>
                 <div class="author-text">
-                    <p>Pievienoja <a href="profile.php?profileid=<?php echo $profileid; ?>"><?php echo $username; ?></a></p>
+                    <p>Pievienoja <a href="profile.php?profileid=<?php echo $profileid; ?>" style="color: <?php echo $usercolor; ?>"><?php echo $username; ?></a></p>
                 </div>
             </div>
         </div>
-        <div class="chat-widget" style="display: inline-block; margin: 35px;">
+        <div class="chat-widget f-widget">
             <div class="widget-header">
                 <p>Komentāri</p>
             </div>

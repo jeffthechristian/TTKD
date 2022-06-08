@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="./scripts/navigation.js" defer></script>
     <link rel="stylesheet" href="./stylesheets/style.css">
     <title>The Outpost</title>
 </head>
@@ -62,7 +63,7 @@
                         
                         $pdo = require 'database.php';
                         try{
-                            $sql = "SELECT post_id, post_title, author_id, user.id, user.username FROM posts INNER JOIN user ON posts.author_id = user.id";
+                            $sql = "SELECT post_id, post_title, author_id, user.id, user.username, user.user_color FROM posts INNER JOIN user ON posts.author_id = user.id";
                             $statement = $pdo->prepare($sql);
                             $statement->execute();
                         }catch(PDOException $e) {
@@ -80,7 +81,7 @@
                             <div class="image"></div>
                                 <div class="post-info">
                                     <a href="post.php?postid='.$posts[sizeof($posts) - $i - 1]['post_id'].'">'.$posts[sizeof($posts) - $i - 1]['post_title'].'</a>
-                                    <p>Pievienoja <a href="profile.php?profileid='.$posts[sizeof($posts) - $i - 1]['author_id'].'" id="user-link">'.$posts[sizeof($posts) - $i - 1]['username'].'</a></p>
+                                    <p>Pievienoja <a href="profile.php?profileid='.$posts[sizeof($posts) - $i - 1]['author_id'].'" id="user-link" style="color: '.$posts[sizeof($posts) - $i - 1]['user_color'].'">'.$posts[sizeof($posts) - $i - 1]['username'].'</a></p>
                                 </div>
                             </div>
 

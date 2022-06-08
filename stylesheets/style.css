@@ -153,26 +153,6 @@ body{
     margin-left: 15px;
 }
 
-.chat-entry{
-    display: flex;
-    flex-direction: row;
-}
-
-.chat-entry img{
-    width: 50px;
-    border-radius: 25px;
-    margin: 12px;
-}
-
-.chat-entry p {
-    color: var(--text-color);
-    margin-top: 25px;
-}
-
-.chat-name{
-    margin-right: 7px;
-}
-
 .chat-message{
     color: rgb(114, 114, 114);
 }
@@ -230,7 +210,7 @@ body{
     color: var(--accent-color);
 }
 
-.form-container input, .profileinfotext-edit input{
+.form-container input, .profileinfotext-edit input, .profileinfotext-edit-password input{
     width: 90%;
     margin: 15px auto;
     background-color: var(--primary-color);
@@ -436,7 +416,7 @@ body{
     color: var(--text-color);
 }
 
-.profileinfotext, .profileinfotext-edit{
+.profileinfotext, .profileinfotext-edit, .profileinfotext-edit-password{
     display: flex;
     flex-direction: row;
     width: 40%;
@@ -448,11 +428,11 @@ body{
     padding: 10px;
 }
 
-.profileinfotext-edit{
+.profileinfotext-edit, .profileinfotext-edit-password{
     display: none;
 }
 
-.profileinfotext-edit form{
+.profileinfotext-edit form, .profileinfotext-edit-password form{
     display: flex;
     flex-direction: column;
 }
@@ -525,7 +505,124 @@ body{
 
 .edit-password{
     width: 100%;
-    margin-top: 1px;
-    padding-left: 30px;
     text-align: left;
+}
+
+.edit-password button, .edit-profile button{
+    display: block;
+    width: 20%;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.burger-button{
+    display: none;
+}
+
+.f-widget{
+    display: inline-block;
+    margin: 35px;
+}
+
+@media only screen and (max-width: 1300px) {
+    .menu-bar{
+        width: 95%;
+    }
+
+    .container{
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .menu-bar{
+        width: 100%;
+    }
+
+    .container{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .menu-bar, .container{
+        width: 100%;
+    }
+
+    .main-content{
+        flex-direction: column;
+    }
+
+    .menu-items li, .user-options li{
+        display: none;
+        flex-direction: column;
+    }
+
+    .f-widget{
+        margin: 10px;
+    }
+
+    .side-widget, .advertisment, .login-alert, .thread-button, .message-input{
+        width: 96%;
+        margin: auto;
+    }
+
+    #submit-button{
+        width: 92%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    .login-alert{
+        margin-bottom: 20px;
+    }
+
+    .form-container{
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    .profileinfotext, .profileinfotext-edit, .profileinfotext-edit-password{
+        width: 98%;
+        margin: auto;
+    }
+
+    .message-input{
+        flex-direction: column;
+    }
+
+    .message-input button{
+        width: 90%;
+        margin-left: 15px;
+        margin-bottom: 20px;
+    }
+
+    .burger-button{
+        display: flex;
+    }
+
+    .active li{
+        display: block; 
+        width: 96%;
+        margin: auto;
+    }
+
+    .new-thread{
+        display: inline-block;
+        height: 40px;
+    }
+
+    .new-thread a{
+        margin-left: 20px;
+    }
+
+    .edit-profile, .edit-password{
+        display: flex;
+    }
+
+    .edit-profile button, .edit-password button{
+        width: 90%;
+    }
+
 }

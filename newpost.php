@@ -18,7 +18,7 @@ if(!isset($_SESSION['is-logged-in'])){
     <div class="banner"></div>
     <?php require './components/navigation.php'; ?>
     <div class="container">
-        <div class="chat-widget" style="display: inline-block; margin: 35px;">
+        <div class="chat-widget f-widget">
             <div class="widget-header">
                 <p>Pievienot jaunu foruma ierakstu</p>
             </div>
