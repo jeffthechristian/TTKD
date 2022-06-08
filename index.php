@@ -63,11 +63,7 @@
                         
                         $pdo = require 'database.php';
                         try{
-<<<<<<< HEAD
-                            $sql = "SELECT post_id, post_title, author_id, user.id, user.username, user.user_color FROM posts INNER JOIN user ON posts.author_id = user.id";
-=======
                             $sql = "SELECT new_id, new_title, author_id, user.id, user.username FROM news INNER JOIN user ON news.author_id = user.id";
->>>>>>> 39b13eab873cfa5d9c5a5af1db41c51e7df49611
                             $statement = $pdo->prepare($sql);
                             $statement->execute();
                         }catch(PDOException $e) {
@@ -83,15 +79,9 @@
                             
                             <div class="new">
                             <div class="image"></div>
-<<<<<<< HEAD
-                                <div class="post-info">
-                                    <a href="post.php?postid='.$posts[sizeof($posts) - $i - 1]['post_id'].'">'.$posts[sizeof($posts) - $i - 1]['post_title'].'</a>
-                                    <p>Pievienoja <a href="profile.php?profileid='.$posts[sizeof($posts) - $i - 1]['author_id'].'" id="user-link" style="color: '.$posts[sizeof($posts) - $i - 1]['user_color'].'">'.$posts[sizeof($posts) - $i - 1]['username'].'</a></p>
-=======
                                 <div class="new-info">
                                     <a href="news.php?newid='.$new[sizeof($new) - $i - 1]['new_id'].'">'.$new[sizeof($new) - $i - 1]['new_title'].'</a>
                                     <p>Pievienoja <a href="profile.php?profileid='.$new[sizeof($new) - $i - 1]['author_id'].'" id="user-link">'.$new[sizeof($new) - $i - 1]['username'].'</a></p>
->>>>>>> 39b13eab873cfa5d9c5a5af1db41c51e7df49611
                                 </div>
                             </div>
 
