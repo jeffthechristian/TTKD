@@ -4,7 +4,7 @@ session_start();
 
 $pdo = require 'database.php';
 
-$newid = $_GET['newid'];
+$newid = $_GET['postid'];
 
 try{
     $sql = "SELECT new_title, new_content, author_id FROM news WHERE new_id=:newid";
@@ -59,35 +59,11 @@ $profileid = $user[0]['id'];
                 <p><?php echo $new_title ?></p>
             </div>
             <div class="widget-body">
-                <div class="new-text">
+                <div class="post-text">
                     <p><?php echo $new_content ?></p>
                 </div>
                 <div class="author-text">
                     <p>Pievienoja <a href="profile.php?profileid=<?php echo $profileid; ?>"><?php echo $username; ?></a></p>
-                </div>
-            </div>
-        </div>
-        <div class="chat-widget" style="display: inline-block; margin: 35px;">
-            <div class="widget-header">
-                <p>Komentāri</p>
-            </div>
-            <div class="widget-body">
-                <?php if(isset($_SESSION['is-logged-in'])): ?>
-                <div class="newnews">
-                    <?php include './components/addcomment.php'; ?>
-                    <form action="" method="new">
-                        <label for="comment-text">Pievienot komentāru:</label>
-                        <input type="text" name="comment-text" id="">
-                        <button type="submit" id="submit-button" name="add-comment">Pievienot komentāru</button>
-                    </form>
-                </div>
-                <?php else: ?>
-                <div class="login-alert" style="margin-top: 20px;">
-                    <p><a href="login.php">Ielogojies</a> lai pievienotu jaunus komentārus!</p>
-                </div>
-                <?php endif; ?>
-                <div class="comments">
-                    <?php include './components/loadcomments.php';  ?>
                 </div>
             </div>
         </div>

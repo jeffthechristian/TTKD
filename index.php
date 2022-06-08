@@ -63,7 +63,7 @@
                         
                         $pdo = require 'database.php';
                         try{
-                            $sql = "SELECT new_id, new_title, author_id, user.id, user.username FROM news INNER JOIN user ON news.author_id = user.id";
+                            $sql = "SELECT new_id, new_title, author_id, user.id, user.username, user.user_color FROM news INNER JOIN user ON news.author_id = user.id";
                             $statement = $pdo->prepare($sql);
                             $statement->execute();
                         }catch(PDOException $e) {
@@ -77,11 +77,11 @@
                         for($i = 0; $i < sizeof($new); $i++){
                             echo '
                             
-                            <div class="new">
+                            <div class="forum-post">
                             <div class="image"></div>
-                                <div class="new-info">
-                                    <a href="news.php?newid='.$new[sizeof($new) - $i - 1]['new_id'].'">'.$new[sizeof($new) - $i - 1]['new_title'].'</a>
-                                    <p>Pievienoja <a href="profile.php?profileid='.$new[sizeof($new) - $i - 1]['author_id'].'" id="user-link">'.$new[sizeof($new) - $i - 1]['username'].'</a></p>
+                                <div class="post-info">
+                                    <a href="news.php?postid='.$new[sizeof($new) - $i - 1]['new_id'].'">'.$new[sizeof($new) - $i - 1]['new_title'].'</a>
+                                    <p>Pievienoja <a href="profile.php?profileid='.$new[sizeof($new) - $i - 1]['author_id'].'" style="color: '.$new[sizeof($new) - $i - 1]['user_color'].';">'.$new[sizeof($new) - $i - 1]['username'].'</a></p>
                                 </div>
                             </div>
 
@@ -96,14 +96,11 @@
                 <div class="side-widget">
                     <div class="widget-header">
                         <p>Jaunkākie ieraksti</p>
-                        <?php include './components/addcomment.php';
-                        $posts = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
-                        
                     </div>
                     <div class="widget-body">
-                        <?php for($i = 0; $i < sizeof($posts); $i++){
+                        <?php for($i = 0; $i < sizeof($new); $i++){
                             if($i == 4) break;
-                            echo '<div class="mini-post"><a href="post.php?postid='.$posts[sizeof($posts) - $i - 1]['post_id'].'">'.$posts[sizeof($posts) - $i - 1]['post_title'].'</a></div>';
+                            echo '<div class="mini-post"><a href="post.php?postid='.$new[sizeof($new) - $i - 1]['new_id'].'">'.$new[sizeof($new) - $i - 1]['new_title'].'</a></div>';
                         }
                         ?>
                     </div>
