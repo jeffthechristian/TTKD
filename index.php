@@ -55,7 +55,7 @@
                 </div>
                 <div class="chat-widget">
                     <div class="widget-header">
-                        <p>Foruma ieraksti</p>
+                        <p>Jaunumi Mājaslapā</p>
                     </div>
                     <div class="widget-body">
                         <?php
