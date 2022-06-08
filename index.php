@@ -62,7 +62,7 @@
                         
                         $pdo = require 'database.php';
                         try{
-                            $sql = "SELECT post_id, post_title, author_id, user.id, user.username FROM posts INNER JOIN user ON posts.author_id = user.id";
+                            $sql = "SELECT new_id, new_title, author_id, user.id, user.username FROM posts INNER JOIN user ON news.author_id = user.id";
                             $statement = $pdo->prepare($sql);
                             $statement->execute();
                         }catch(PDOException $e) {
