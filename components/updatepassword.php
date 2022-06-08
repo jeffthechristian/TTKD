@@ -7,9 +7,9 @@ if(isset($_POST['save-new-password'])){
         return;
     }
 
-    $password = $_POST['password']
-    $newpassword = $_POST['new-password']
-    $renewpassword = $_POST['re-new-password']
+    $password = $_POST['password'];
+    $newpassword = $_POST['new-password'];
+    $renewpassword = $_POST['re-new-password'];
     $userid = $_SESSION['user-id'];
     
 

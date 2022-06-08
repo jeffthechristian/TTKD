@@ -93,11 +93,6 @@
                 </div>
             </div>
             <div class="side-container">
-                <?php if (isset($_SESSION['is-logged-in'])): ?>
-                <div class="new-thread">
-                    <a href="newpost.php" class="thread-button">+ Pievienot jaunu ierakstu</a>
-                </div>
-                <?php endif; ?>
                 <div class="side-widget">
                     <div class="widget-header">
                         <p>Jaunkākie ieraksti</p>
