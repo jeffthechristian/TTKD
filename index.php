@@ -71,12 +71,12 @@
                             Datubāzes kļūda!
                             </div>';
                         }
-                        $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+                        $new = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-                        for($i = 0; $i < sizeof($posts); $i++){
+                        for($i = 0; $i < sizeof($new); $i++){
                             echo '
                             
-                            <div class="forum-post">
+                            <div class="new">
                             <div class="image"></div>
                                 <div class="new-info">
                                     <a href="news.php?newid='.$new[sizeof($new) - $i - 1]['new_id'].'">'.$new[sizeof($new) - $i - 1]['new_title'].'</a>
@@ -100,6 +100,9 @@
                 <div class="side-widget">
                     <div class="widget-header">
                         <p>Jaunkākie ieraksti</p>
+                        <?php include './components/addcomment.php';
+                        $posts = $statement->fetchAll(PDO::FETCH_ASSOC); ?>
+                        
                     </div>
                     <div class="widget-body">
                         <?php for($i = 0; $i < sizeof($posts); $i++){

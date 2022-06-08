@@ -73,7 +73,7 @@ $profileid = $user[0]['id'];
             </div>
             <div class="widget-body">
                 <?php if(isset($_SESSION['is-logged-in'])): ?>
-                <div class="newnew">
+                <div class="newnews">
                     <?php include './components/addcomment.php'; ?>
                     <form action="" method="new">
                         <label for="comment-text">Pievienot komentāru:</label>
